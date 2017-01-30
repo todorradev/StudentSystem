@@ -1,0 +1,32 @@
+<h1>Hi, Admin!</h1>
+<h3>All registered students:</h3>
+<table ng-table="students" class="table">
+    <!--<tr ng-repeat="student in vm.allStudents"> <!-->
+    <td>
+        <input type="text" class="form-control" ng-model="student.firstName"/>firstName
+    </td>
+    <td>
+        <input type="text" class="form-control" ng-model="student.lastName"/>lastName
+    </td>
+    <td>
+        <input type="text" class="form-control" ng-model="student.personalData"/>personalData
+    </td>
+
+    <td>
+        <input type="text" class="form-control" ng-model="student.semester"/>semester
+    </td>
+
+    <td>
+        <input type="text" class="form-control" ng-model="student.discipline"/>discipline
+    </td>
+
+    <td>
+        <input type="text" class="form-control" ng-model="student.grade"/>grade
+    </td>
+
+    <td>
+        <a class="pointerLinks" ng-click="vm.updateStudent(student)">Update</a></td>
+
+</table>
+<p>&nbsp;</p>
+<p><a href="#/login" class="btn btn-primary">Logout</a></p>
