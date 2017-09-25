@@ -17,6 +17,7 @@ public class StudentTransformation {
         studentDTO.setFirstName(student.getFirstName());
         studentDTO.setLastName(student.getLastName());
         studentDTO.setPersonalData(student.getPersonalData());
+        studentDTO.setSemester(student.getSemester());
 
         return studentDTO;
     }
@@ -33,7 +34,7 @@ public class StudentTransformation {
         student.setFirstName(studentDTO.getFirstName());
         student.setLastName(studentDTO.getLastName());
         student.setPersonalData(studentDTO.getPersonalData());
-
+        student.setSemester(studentDTO.getSemester());
         return student;
     }
 }

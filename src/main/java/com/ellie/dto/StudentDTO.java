@@ -14,6 +14,15 @@ public class StudentDTO {
     @Size(max = 250)
     private String personalData;
 
+    private Integer semester;
+
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Integer semester) {
+        this.semester = semester;
+    }
 
     public String getPersonalData() {
         return personalData;

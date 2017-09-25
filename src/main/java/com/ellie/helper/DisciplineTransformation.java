@@ -14,10 +14,7 @@ public class DisciplineTransformation {
         DisciplineDTO disciplineDTO = new DisciplineDTO();
 
         disciplineDTO.setDisciplineName(discipline.getDisciplineName());
-        disciplineDTO.setGrade(discipline.getGrade());
         disciplineDTO.setId(discipline.getId());
-        disciplineDTO.setSemester(discipline.getSemester());
-        disciplineDTO.setStudent(discipline.getStudent());
 
         return disciplineDTO;
     }
@@ -33,9 +30,6 @@ public class DisciplineTransformation {
 
         discipline.setId(disciplineDTO.getId());
         discipline.setDisciplineName(disciplineDTO.getDisciplineName());
-        discipline.setGrade(disciplineDTO.getGrade());
-        discipline.setSemester(disciplineDTO.getSemester());
-        discipline.setStudent(disciplineDTO.getStudent());
 
         return discipline;
     }

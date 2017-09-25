@@ -1,13 +1,15 @@
 package com.ellie.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "students")
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "firstName", length = 50)
@@ -18,6 +20,17 @@ public class Student {
 
     @Column(name = "personal_data", length = 250)
     private String personalData;
+
+    @Column(name = "semester")
+    private Integer semester;
+
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Integer semester) {
+        this.semester = semester;
+    }
 
     public Long getId() {
         return id;

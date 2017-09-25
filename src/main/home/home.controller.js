@@ -3,13 +3,16 @@
     .controller('HomeController', HomeController);
 
 HomeController.$inject = ['StudentService', '$rootScope', 'FlashService'];
+
 function HomeController(StudentService, $rootScope, FlashService) {
     var vm = this;
 
     vm.id = $rootScope.globals.currentStudent.id
     vm.student = null;
     vm.allStudents = [];
+    vm.createStudent = createStudent;
     vm.updateStudent = updateStudent;
+    vm.deleteStudent = deleteStudent;
 
     loadCurrentStudent();
     loadAllStudents();
@@ -19,8 +22,10 @@ function HomeController(StudentService, $rootScope, FlashService) {
             .then(function (data) {
                 if (data.message != null)
                     FlashService.Error(data.message);
-                else
+                else {
                     vm.student = data;
+                    loadAllStudents();
+                }
             });
     }
 
@@ -34,8 +39,32 @@ function HomeController(StudentService, $rootScope, FlashService) {
             });
     }
 
+    function createStudent(student) {
+        StudentService.create(student)
+            .then(function (data) {
+                if (data.message != null)
+                    FlashService.Error(data.message);
+                else {
+                    loadCurrentStudent();
+                    loadAllStudents();
+                }
+            });
+    }
+
     function updateStudent(student) {
         StudentService.update(student)
+            .then(function (data) {
+                if (data.message != null)
+                    FlashService.Error(data.message);
+                else {
+                    loadCurrentStudent();
+                    loadAllStudents();
+                }
+            });
+    }
+
+    function deleteStudent(id) {
+        StudentService.deleteStudent(id)
             .then(function (data) {
                 if (data.message != null)
                     FlashService.Error(data.message);

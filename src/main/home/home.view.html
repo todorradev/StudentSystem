@@ -1,7 +1,10 @@
 <h1>Hi, Admin!</h1>
-<h3>All registered students:</h3>
+<h3>Create new student:</h3>
+
 <table ng-table="students" class="table">
-    <!--<tr ng-repeat="student in vm.allStudents"> <!-->
+    <td>
+        <input type="text" class="form-control" ng-model="student.id"/>ID
+    </td>
     <td>
         <input type="text" class="form-control" ng-model="student.firstName"/>firstName
     </td>
@@ -17,15 +20,54 @@
     </td>
 
     <td>
-        <input type="text" class="form-control" ng-model="student.discipline"/>discipline
-    </td>
+        <a class="pointerLinks" ng-click="vm.createStudent(student)">Create</a></td>
+</table>
 
-    <td>
-        <input type="text" class="form-control" ng-model="student.grade"/>grade
-    </td>
+<h3>All registered students:</h3>
+<table ng-table="students" class="table">
+    <tr ng-repeat="student in vm.allStudents" ng-if = "student.firstName === 'admin'">
+        <td>
+            <input type="text" class="form-control" ng-model="student.id" readonly/>ID
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="student.firstName" readonly/>firstName
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="student.lastName" readonly/>lastName
+        </td>
+    </tr>
 
-    <td>
-        <a class="pointerLinks" ng-click="vm.updateStudent(student)">Update</a></td>
+    <tr ng-repeat="student in vm.allStudents" ng-if = "student.firstName !== 'admin'">
+        <td>
+            <input type="text" class="form-control" ng-model="student.id" readonly/>ID
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="student.firstName"/>firstName
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="student.lastName"/>lastName
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="student.personalData"/>personalData
+        </td>
+
+        <td>
+            <input type="text" class="form-control" ng-model="student.semester"/>semester
+        </td>
+
+        <td>
+            <input type="text" class="form-control" ng-model="student.disciplineName"/>discipline
+        </td>
+
+        <td>
+            <input type="text" class="form-control" ng-model="student.grade"/>grade
+        </td>
+
+        <td>
+            <a class="pointerLinks" ng-click="vm.updateStudent(student)">Update</a></td>
+        <td>
+            <a class="pointerLinks" ng-click="vm.deleteStudent(student.id)">Delete</a></td>
+    </tr>
 
 </table>
 <p>&nbsp;</p>
